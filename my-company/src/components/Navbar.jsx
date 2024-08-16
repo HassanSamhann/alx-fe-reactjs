@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <>
-      <div style={{display: "flex", background:"red", justifyContent:"center" }}>
+      <div style={{display: "flex", backgroundColor:"red", justifyContent:"center" }}>
         <Link to="/">
           logo
         </Link>
