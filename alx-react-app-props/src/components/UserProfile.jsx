@@ -1,14 +1,14 @@
 import React from "react";
 import UserContext from "./UserContext";
     
-function UserProfile(userContext) {
+function UserProfile(useContext) {
     
   return (
     <UserContext.Provider >
     <div>
-    <h2>{userContext.name}</h2>
-    <p>Age: {userContext.age}</p>
-    <p>Bio: {userContext.bio}</p>
+    <h2>{useContext.name}</h2>
+    <p>Age: {useContext.age}</p>
+    <p>Bio: {useContext.bio}</p>
   </div>
 
   </UserContext.Provider>
