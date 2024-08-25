@@ -48,7 +48,7 @@ const useRecipeStore = create((set) => ({
       recipe.ingredients?.some(ingredient => ingredient.toLowerCase().includes(state.searchTerm.toLowerCase()))
     ),
   })),
-  
+  setRecipes: (recipes) => set({ recipes }),
   deleteRecipe: (id) => set((state) => ({
     recipes: state.recipes.filter((recipe) => recipe.id !== id),
     filteredRecipes: state.filteredRecipes.filter((recipe) => recipe.id !== id),
