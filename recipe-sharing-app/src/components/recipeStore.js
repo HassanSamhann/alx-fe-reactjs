@@ -5,6 +5,30 @@ const useRecipeStore = create((set) => ({
   recipes: [],
   searchTerm: '',
   filteredRecipes: [],
+  favorites: [],
+  
+  // Add a recipe to favorites
+  addFavorite: (recipeId) => set((state) => ({
+    favorites: [...state.favorites, recipeId],
+  })),
+  
+  // Remove a recipe from favorites
+  removeFavorite: (recipeId) => set((state) => ({
+    favorites: state.favorites.filter((id) => id !== recipeId),
+  })),
+  
+  // Mock recommendations based on favorites
+  recommendations: [],
+  generateRecommendations: () => set((state) => {
+    const recommended = state.recipes.filter(
+      (recipe) => !state.favorites.includes(recipe.id) && Math.random() > 0.5
+    );
+    return { recommendations: recommended };
+  }),
+
+
+
+
   
   setSearchTerm: (term) => set((state) => {
     const lowerCaseTerm = term.toLowerCase();
