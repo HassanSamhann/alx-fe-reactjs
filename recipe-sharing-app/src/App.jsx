@@ -1,17 +1,26 @@
 // src/App.jsx
-import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
-import RecipeDetails from './components/RecipeList';
+import RecipeDetails from './components/RecipeDetails';
+import SearchBar from './components/SearchBar';
 
 function App() {
   return (
     <Router>
       <div>
         <h1>Recipe Sharing App</h1>
-        <AddRecipeForm />
-        <RecipeList />
+        <SearchBar />
         <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <AddRecipeForm />
+                <RecipeList />
+              </>
+            }
+          />
           <Route path="/recipe/:id" element={<RecipeDetailsWrapper />} />
         </Routes>
       </div>
@@ -19,7 +28,7 @@ function App() {
   );
 }
 
-// A wrapper to pass the recipe ID as a prop to RecipeDetails
+// Wrapper component to extract the recipe ID from the URL and pass it to RecipeDetails
 const RecipeDetailsWrapper = () => {
   const { id } = useParams();
   return <RecipeDetails recipeId={parseInt(id, 10)} />;
