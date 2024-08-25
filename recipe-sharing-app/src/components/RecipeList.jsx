@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const RecipeList = () => {
   const filteredRecipes = useRecipeStore(state => state.filteredRecipes);
+  const recipes = useRecipeStore((state) => state.recipes);
 
   return (
     <div>
