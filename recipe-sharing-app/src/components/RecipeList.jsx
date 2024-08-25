@@ -1,25 +1,19 @@
-// src/components/RecipeDetails.jsx
-import EditRecipeForm from './EditRecipeForm';
-import DeleteRecipeButton from './DeleteRecipeButton';
+// src/components/RecipeList.jsx
 import { useRecipeStore } from './recipeStore';
 
-const RecipeDetails = ({ recipeId }) => {
-  const recipe = useRecipeStore((state) =>
-    state.recipes.find((recipe) => recipe.id === recipeId)
-  );
-
-  if (!recipe) {
-    return <p>Recipe not found.</p>;
-  }
+const RecipeList = () => {
+  const recipes = useRecipeStore((state) => state.recipes);
 
   return (
     <div>
-      <h1>{recipe.title}</h1>
-      <p>{recipe.description}</p>
-      <EditRecipeForm recipe={recipe} />
-      <DeleteRecipeButton recipeId={recipe.id} />
+      {recipes.map((recipe) => (
+        <div key={recipe.id}>
+          <h3>{recipe.title}</h3>
+          <p>{recipe.description}</p>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default RecipeDetails;
+export default RecipeList;
