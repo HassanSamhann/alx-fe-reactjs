@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Profile from './components/Profile';
-import Post from './components/Post';
+import Post from './components/BlogPost';
 
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -20,7 +20,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/post/:postId" element={<Post />} />
+        <Route path="/blog/:Id" element={<Post />} />
       </Routes>
     </Router>
   );
