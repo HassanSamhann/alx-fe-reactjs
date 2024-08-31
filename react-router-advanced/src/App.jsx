@@ -5,7 +5,7 @@ import Profile from './components/Profile';
 import ProtectedRoute from './components/ProtectedRoute';
 import BlogPost from './components/BlogPost';
 
-const isAuthenticated = false; // Replace with actual authentication logic
+const useAuth = false; // Replace with actual authentication logic
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route
           path="/profile/*"
           element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
+            <ProtectedRoute useAuth={useAuth}>
               <Profile />
             </ProtectedRoute>
           }
