@@ -7,7 +7,7 @@ const fetchPosts = async () => {
   }
   return response.json();
 };
-
+// isError
 const PostsComponent = () => {
   const { data, error, isLoading, refetch } = useQuery('posts', fetchPosts);
 
