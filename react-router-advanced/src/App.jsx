@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Profile from './components/Profile';
-import Post from './components/BlogPost';
 
 import ProtectedRoute from './components/ProtectedRoute';
+import BlogPost from './components/BlogPost';
 
 const isAuthenticated = false; // Replace with actual authentication logic
 
@@ -20,7 +20,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/blog/:Id" element={<Post />} />
+        <Route path="/blog/:Id" element={<BlogPost />} />
       </Routes>
     </Router>
   );
