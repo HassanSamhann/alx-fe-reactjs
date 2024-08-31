@@ -10,5 +10,5 @@ function App() {
     </QueryClientProvider>
   );
 }
-
+//QueryClient", "QueryClientProvider", "queryClient", "client={queryClient}", "PostsComponent
 export default App;
