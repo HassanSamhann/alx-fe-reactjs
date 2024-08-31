@@ -1,4 +1,8 @@
+// src/components/TodoList.jsx
+
 import  { useState } from 'react';
+import AddTodoForm from './AddTodoForm';
+import './TodoList.css';
 
 const TodoList = () => {
   const [todos, setTodos] = useState([
@@ -8,7 +12,11 @@ const TodoList = () => {
   ]);
 
   const addTodo = (text) => {
-    const newTodo = { id: todos.length + 1, text, completed: false };
+    const newTodo = {
+      id: todos.length + 1,
+      text,
+      completed: false,
+    };
     setTodos([...todos, newTodo]);
   };
 
@@ -25,46 +33,32 @@ const TodoList = () => {
   };
 
   return (
-    <div>
+    <div className="todo-list-container">
       <h1>Todo List</h1>
       <AddTodoForm addTodo={addTodo} />
-      <ul>
+      <ul className="todo-list">
         {todos.map((todo) => (
           <li
             key={todo.id}
+            className={`todo-item ${todo.completed ? 'completed' : ''}`}
             onClick={() => toggleTodo(todo.id)}
-            style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+            data-testid={`todo-item-${todo.id}`}
           >
             {todo.text}
-            <button onClick={(e) => { e.stopPropagation(); deleteTodo(todo.id); }}>Delete</button>
+            <button
+              className="delete-button"
+              onClick={(e) => {
+                e.stopPropagation();
+                deleteTodo(todo.id);
+              }}
+              data-testid={`delete-button-${todo.id}`}
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
     </div>
-  );
-};
-
-const AddTodoForm = ({ addTodo }) => {
-  const [text, setText] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (text) {
-      addTodo(text);
-      setText('');
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Add a new todo"
-      />
-      <button type="submit">Add Todo</button>
-    </form>
   );
 };
 
