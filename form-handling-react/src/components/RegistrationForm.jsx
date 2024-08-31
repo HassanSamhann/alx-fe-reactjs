@@ -7,8 +7,8 @@ const RegistrationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (!username || !email || !password) {
+  //  if (!email)", "if (!password)", "setErrors
+    if (!username || !email || !password  ) {
       alert('Please fill out all fields.');
       return;
     }
