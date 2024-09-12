@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   let [data, Setdata]= useState([]);
@@ -31,6 +32,7 @@ function HomePage() {
       <img className="w-40 hover:scale-110 transition" src="" alt="" />
       <h2 className="text-center text-black font-bold">{}</h2>
       <p className="text-center text-black">{}</p>
+      <Link  to={""}></Link>
     </div>
 
   </>);
