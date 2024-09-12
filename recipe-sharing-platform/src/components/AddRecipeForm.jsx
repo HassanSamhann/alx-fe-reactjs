@@ -3,32 +3,32 @@ import { useState } from "react";
 function AddRecipeForm() {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
-  const [steps, setSteps] = useState("");
-  const [error, setError] = useState("");
+  const [validate, setSteps] = useState("");
+  const [errors, setErrors] = useState("");
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Validation
-    if (!title || !ingredients || !steps) {
-      setError("All fields are required.");
+    if (!title || !ingredients || !validate) {
+      setErrors("All fields are required.");
       return;
     }
 
     const ingredientsArray = ingredients.split(",").map(item => item.trim());
     if (ingredientsArray.length < 2) {
-      setError("Please enter at least two ingredients.");
+      setErrors("Please enter at least two ingredients.");
       return;
     }
 
-    setError(""); // Clear any errors
+    setErrors(""); // Clear any errors
 
     // Mock submission (in a real app, you would send the data to a backend or state)
     console.log({
       title,
       ingredients: ingredientsArray,
-      steps
+      validate
     });
 
     // Clear the form
@@ -40,7 +40,7 @@ function AddRecipeForm() {
   return (
     <div className="max-w-2xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Submit a New Recipe</h1>
-      {error && <p className="text-red-500 mb-4">{error}</p>}
+      {errors && <p className="text-red-500 mb-4">{errors}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Recipe Title */}
         <div>
@@ -79,7 +79,7 @@ function AddRecipeForm() {
           </label>
           <textarea
             id="steps"
-            value={steps}
+            value={validate}
             onChange={(e) => setSteps(e.target.value)}
             className="w-full mt-1 p-2 border border-gray-300 rounded-md"
             placeholder="Enter the preparation steps"
