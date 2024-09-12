@@ -24,5 +24,5 @@ import Card from "./Card";
         </>
       )
     }
-    
+    // "ingredients", "instructions", "image"
     export default RecipeDetail ; 
