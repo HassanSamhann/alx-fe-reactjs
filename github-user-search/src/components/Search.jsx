@@ -1,4 +1,5 @@
 // src/components/Search.jsx
+//"avatar_url", "login", "Loading", "Looks like we cant find the user", "img"
 import  { useState } from 'react';
 
 const Search = ({ onSearch }) => {
