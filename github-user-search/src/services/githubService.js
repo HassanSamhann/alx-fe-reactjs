@@ -1,4 +1,4 @@
-// src/services/githubService.js
+// src/services/githubService.js "https://api.github.com/search/users?q", "location", "minRepos"
 import axios from 'axios';
 
 export const fetchUserData = async (username) => {
