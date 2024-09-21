@@ -28,16 +28,16 @@ const App = () => {
       <Search onSearch={handleSearch} />
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      {users.map((user) => (
-  <div key={user.id} className="flex items-center p-4 border-b">
-    <img src={user.avatar_url} alt={user.login} className="w-12 h-12 rounded-full" />
-    <div className="ml-4">
-      <a href={user.html_url} target="_blank" rel="noopener noreferrer">{user.login}</a>
-      <p>Location: {user.location}</p>
-      <p>Repositories: {user.public_repos}</p>
-    </div>
-  </div>
-))}
+      {user && (
+        <div>
+          <img src={user.avatar_url} alt={`${user.login} avatar`} width="100" />
+          <h2>{user.name}</h2>
+          <p>{user.bio}</p>
+          <a href={user.html_url} target="_blank" rel="noopener noreferrer">
+            View GitHub Profile
+          </a>
+        </div>
+      )}
     </div>
   );
 };

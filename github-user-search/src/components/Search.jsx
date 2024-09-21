@@ -1,5 +1,5 @@
 // src/components/Search.jsx
-//"avatar_url", "login", "Loading", "Looks like we cant find the user", "img"  "fetchUserData"
+//"avatar_url", "login", "Loading", "Looks like we cant find the user", "img"  "fetchUserData" "async", "await", "map", "&&"
 import  { useState } from 'react';
 
 const Search = ({ onSearch }) => {
